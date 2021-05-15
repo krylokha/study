@@ -179,18 +179,14 @@ class DateTime(Time):
         return year % 4 == 0 and year % 100 != 0 or year % 400 == 0
 
     def __repr__(self) -> str:
-        return f"{self.__day}.{self.__month:02}.{self.__year}"
+        return f"Дата: {self.__day}.{self.__month:02}.{self.__year}, время: {self.h}:{self.m}:{self.s}"
 
 
-# time = Time(12, 59, 59)
-date = DateTime(18, 45, 53, 30, 12, 2004)
-# print(time)
-print(date)
-days = int(input())
+day, month, year = map(int, input('Добро пожаловать в программу изменеия времени!\nВведите желаемую дату, которую хотите изменить в формате дд.мм.гггг >> ').split('.'))
+hour, minute, second = map(int, input('Супер! А теперь введите время, которое желаете изменить в формате чч:мм:сс >> ').split(':'))
+date = DateTime(hour, minute, second, day, month, year)
+days = int(input('Введите то количество дней, на которое хотите перемотать время (можно с минусом) >> '))
 date.shift_days(days)
-sec = int(input())
+sec = int(input('Введите то количество секунд, на которое хотите перемотать время (можно с минусом) >> '))
 date.shift_seconds(sec)
-print(date)
-# sec = int(input())
-# time.shift_secondays(sec)
-# print(time)
+print(f'Ваша дата получилась следующей: {date}')
