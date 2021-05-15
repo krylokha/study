@@ -2,7 +2,8 @@
 # Мальчики должны сделать 20 отжиманий на зачет. 
 # Девочки должны сделать 20 приседаний на зачет. 
 # Класс состоит и мальчиков и девочек вперемешку. 
-# Написать программу, которая проводит зачет в этом классе.
+# Количество отжиманий, приседаний генерируются автоматически.
+# Программа определяет, кто сдал экзамен, а кто нет.
 
 from abc import ABC, abstractmethod
 from typing import Callable, Generator, Iterator
@@ -40,25 +41,28 @@ class Male(Student):
 
 def try_pass(student: Student):
     if student.get_result():
-        print(f'Student {student.name} passed the exam with the result {student.quantity}')
+        print(f'Ученик(ца) {student.name} сдал(а) зачёт с результатом {student.quantity}.')
     else:
-        print(f'Student {student.name} did not pass the exam with the result {student.quantity}')
+        print(f'Ученик(ца) {student.name} не сдал(а) зачёт с результатом {student.quantity}.')
 
 
-Students_list = [   Female('Maria'), 
-                    Male('Alex'), 
-                    Female('Alena'), 
-                    Male('Ivan'), 
-                    Male('Igor'), 
-                    Male('Ilia'), 
-                    Female('Lisa'), 
-                    Male('Timer'), 
-                    Female('Irina'), 
-                    Female('Sofia'), 
-                    Male('Andrey'), 
-                    Female('Valentina'), 
-                    Male('Dmitry')
+Students_list = [   Female('Мария'), 
+                    Male('Алексей'), 
+                    Female('Алёна'), 
+                    Male('Иван'), 
+                    Male('Игорь'), 
+                    Male('Илья'), 
+                    Female('Елизавета'), 
+                    Male('Тимер'), 
+                    Female('Ирина'), 
+                    Female('София'), 
+                    Male('Андрей'), 
+                    Female('Валентина'), 
+                    Male('Дмитрий')
                     ]
 
-for student in Students_list:
-    try_pass(student)
+print('Эта программа проводит зачёт у студентов в классе. Имена учеников известны. Количество упражнений генерируются автоматически.\nЧтоб сдать зачёт, девочкам требуется сделать 20 приседаний, мальчикам - 20 отжиманий.\nНажмите 1, когда будете готовы.')
+x = int(input())
+if x == 1:
+    for student in Students_list:
+        try_pass(student)
