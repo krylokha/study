@@ -8,7 +8,7 @@
 from abc import ABC, abstractmethod
 from typing import Callable, Generator, Iterator
 import random
-
+import time
 
 class Student(ABC):
     name: str
@@ -61,8 +61,9 @@ Students_list = [   Female('Мария'),
                     Male('Дмитрий')
                     ]
 
-print('Эта программа проводит зачёт у студентов в классе. Имена учеников известны. Количество упражнений генерируются автоматически.\nЧтоб сдать зачёт, девочкам требуется сделать 20 приседаний, мальчикам - 20 отжиманий.\nНажмите 1, когда будете готовы.')
+print('Эта программа проводит зачёт у студентов в классе.\nИмена учеников известны. Количество упражнений генерируются автоматически.\nЧтоб сдать зачёт, девочкам требуется сделать 20 приседаний, мальчикам - 20 отжиманий.\nНажмите 1, когда будете готовы.')
 x = int(input())
 if x == 1:
-    for student in Students_list:
-        try_pass(student)
+        for student in Students_list:
+            time.sleep(2)
+            try_pass(student)
